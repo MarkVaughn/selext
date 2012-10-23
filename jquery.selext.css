@@ -1,0 +1,24 @@
+﻿/***     SELEXT        ***/
+.selext {
+  position: relative;
+  cursor:pointer;
+  display: inline;
+}
+.selext span:after{
+    content:"▶";
+    margin-left: 1em;
+}
+.selext .selext-open:after{
+    content:"▼";
+    margin-left: 1em;
+}
+.selext ul{
+    list-style:none;
+    display:none;
+    padding:0;
+    margin:0;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    background-color:#fff;
+}
