@@ -1,6 +1,6 @@
 (function( $ ) {
   $.fn.selext = function(o) {
-  s = {
+	s = {
 		openOn: 'hover', // 'click', 'hover',
 		keepClases: true // transfer the select boxes classes to the new element
 	};
@@ -14,6 +14,11 @@
         $list = $('<ul class=selext-options/>'),
         fShow = function(){$list.show(); $selected.addClass('selext-open');},
         fHide = function(){$list.hide(); $selected.removeClass('selext-open');};
+        //avoid multiple selext
+        if($this.hasClass('selexted')){
+        	return;
+        }
+        $this.addClass('selexted');
         $options.each(function(){
             var $this = $(this);
             $option = $('<li/>').addClass('selext-option');
