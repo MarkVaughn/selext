@@ -37,7 +37,7 @@
             $this.val($(this).data('value'));
             $selected.removeClass('selext-open');
         });
-        $container = $('<div class="'+(s.keepClases &&  classes.length > 0 ? classes + ' ' : '' )+'selext">').append($selected).append($list);
+        $container = $('<div class="'+(s.keepClases && typeof classes !== "undefined" ? classes + ' ' : '' )+'selext">').append($selected).append($list);
         switch(s.openOn){
         	case 'click':
         		$selected.on('click',fShow);
