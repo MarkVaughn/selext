@@ -34,7 +34,11 @@
             $list.children().removeClass('selext-selected');
             $selected.text($(this).addClass('selext-selected').text());
             $list.hide();
-            $this.val($(this).data('value'));
+            //Check if selected value is different from current one
+            var setval = $(this).data('value');
+            if(setval !== $this.val()){
+               $this.val(setval).change();
+            }
             $selected.removeClass('selext-open');
         });
         $container = $('<div class="'+(s.keepClases && typeof classes !== "undefined" ? classes + ' ' : '' )+'selext">').append($selected).append($list);
