@@ -32,13 +32,12 @@
         $selected.text($options.filter(':selected').text() || $options.first().text());
         $list.on('click','li', function(){
             $list.children().removeClass('selext-selected');
-            $list.hide();
             //Check if selected value is different from current one
-            var setval = $(this).data('value');
+            var setval = $(this).addClass('selext-selected').data('value');
             if(setval !== $this.val()){
                $this.val(setval).change();
             }
-            $selected.removeClass('selext-open');
+            fHide();
         });
         
         $this.change(function(){
