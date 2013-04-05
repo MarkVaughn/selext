@@ -32,7 +32,6 @@
         $selected.text($options.filter(':selected').text() || $options.first().text());
         $list.on('click','li', function(){
             $list.children().removeClass('selext-selected');
-            $selected.text($(this).addClass('selext-selected').text());
             $list.hide();
             //Check if selected value is different from current one
             var setval = $(this).data('value');
@@ -40,6 +39,10 @@
                $this.val(setval).change();
             }
             $selected.removeClass('selext-open');
+        });
+        
+        $this.change(function(){
+            setText($options.filter(':selected').text());
         });
         $container = $('<div class="'+(s.keepClases && typeof classes !== "undefined" ? classes + ' ' : '' )+'selext">').append($selected).append($list);
         switch(s.openOn){
