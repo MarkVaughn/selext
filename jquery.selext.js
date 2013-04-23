@@ -13,7 +13,8 @@
         $selected = $('<span class=selext-current/>'),
         $list = $('<ul class=selext-options/>'),
         fShow = function(){$list.show(); $selected.addClass('selext-open');},
-        fHide = function(){$list.hide(); $selected.removeClass('selext-open');};
+        fHide = function(){$list.hide(); $selected.removeClass('selext-open');},
+        setText = function(text){$selected.html(text);};
         //avoid multiple selext
         if($this.hasClass('selexted')){
         	return;
@@ -29,7 +30,7 @@
             $list.append($option);
         });
         
-        $selected.text($options.filter(':selected').text() || $options.first().text());
+        setText($options.filter(':selected').text() || $options.first().text());
         $list.on('click','li', function(){
             $list.children().removeClass('selext-selected');
             //Check if selected value is different from current one
